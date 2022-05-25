@@ -278,7 +278,7 @@ func (c *Client) downloadChunked(req *http.Request, w *io.PipeWriter, format *Fo
 	const chunkSize int64 = 10_000_000
 	// Loads a chunk a returns the written bytes.
 	// Downloading in multiple chunks is much faster:
-	// https://github.com/kkdai/youtube/pull/190
+	// https://github.com/narvikd/youtube/pull/190
 	loadChunk := func(pos int64) (int64, error) {
 		req.Header.Set("Range", fmt.Sprintf("bytes=%v-%v", pos, pos+chunkSize-1))
 
